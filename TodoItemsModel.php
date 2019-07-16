@@ -33,15 +33,15 @@ class TodoItemsModel extends ModelBase
         return $ret;
     }
 
-    public function completeTodoItem($key,$value)
+    public function completeTodoItem($id,$flag)
     {
         $sql = '';
         $sql .= 'update ';
         $sql .= 'todo_items ';
         $sql .= 'set ';
-        $sql .= "is_completed = $value ";
+        $sql .= "is_completed = $flag ";
         $sql .= 'where ';        
-        $sql .= "id = $key ";
+        $sql .= "id = $id ";
 
         $stmt = $this->dbh->prepare($sql);
         $stmt->execute();
@@ -65,6 +65,7 @@ class TodoItemsModel extends ModelBase
 
     public function addTodoItem($post)
     {
+        
         $sql = '';
         $sql .= 'insert ';
         $sql .= 'into ';
@@ -76,7 +77,7 @@ class TodoItemsModel extends ModelBase
         $stmt = $this->dbh->prepare($sql);
         $data[]=$post['expiration_date'];
         $data[]=$post['todo_item'];
-        
+
         $stmt->execute($data);
     }
 }
