@@ -33,6 +33,11 @@ class TodoItemsModel extends ModelBase
         return $ret;
     }
 
+    /**
+     * 完成フラグを更新します.
+     *
+     * @return array 作業項目の配列
+     */
     public function completeTodoItem($id,$flag)
     {
         $sql = '';
