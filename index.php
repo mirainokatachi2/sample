@@ -42,32 +42,6 @@
         <th>削除</th>
     </tr>
 
-
-<!--
-foreach ($items as $rec) {
-
-    if ($rec['is_completed']==1) {
-        print '
-        <tr>
-            <td class="del">'.$rec['expiration_date'].'</td>
-            <td class="del">'.$rec['todo_item'].'</td>
-            <td class="center"><input type="radio" name="is_completed['.$rec['id'].']" value="0"></td>
-            <td class="center"><input type="radio" name="is_completed['.$rec['id'].']" checked value="1"></td>';
-    } else {
-        print '
-        <tr>
-            <td>'.$rec['expiration_date'].'</td>
-            <td>'.$rec['todo_item'].'</td>
-            <td class="center"><input type="radio" name="is_completed['.$rec['id'].']" checked value="0"></td>
-            <td class="center"><input type="radio" name="is_completed['.$rec['id'].']" value="1"></td>';
-    }
-
-        print '
-        <td class="center"><input type="checkbox" name="is_deleted['.$rec['id'].']" value="1"></td>
-        </tr>';
-}
--->
-
 <?php foreach ($items as $rec) :  ?>
 
     <?php if ($rec['is_completed']==1): ?>
