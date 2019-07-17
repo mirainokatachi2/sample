@@ -1,7 +1,9 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/todo2/ModelBase.php');
 
-
+/**
+ * 作業項目モデルクラスです。
+ */
 class TodoItemsModel extends ModelBase
 {
     /**
@@ -34,11 +36,9 @@ class TodoItemsModel extends ModelBase
     }
 
     /**
-     * 完成フラグを更新します.
-     *
-     * @return array 作業項目の配列
+     * 完了フラグ(0 or 1)をデータベースに更新します。
      */
-    public function completeTodoItem($id,$flag)
+    public function completeTodoItem($id, $flag)
     {
         $sql = '';
         $sql .= 'update ';
@@ -53,6 +53,9 @@ class TodoItemsModel extends ModelBase
 
     }
 
+    /**
+     * 削除フラグ(0 or 1)をデータベースに更新します。
+     */
     public function deleteTodoItem($key,$value)
     {
         $sql = '';
@@ -68,6 +71,9 @@ class TodoItemsModel extends ModelBase
 
     }
 
+    /**
+     * 作業項目ををデータベースに追加します。
+     */
     public function addTodoItem($post)
     {
         

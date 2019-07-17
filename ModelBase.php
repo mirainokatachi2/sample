@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * 基本モデルクラスです。
+ */
 class ModelBase
 {
 
@@ -18,7 +21,9 @@ class ModelBase
     /** @var object PDOインスタンス */
     protected $dbh;
 
-
+    /**
+     * コンストラクタ
+     */
     public function __construct() {
         $dsn = 'mysql:dbname='.self::DB_NAME.';host='.self::DB_HOST.';charset=utf8';
         $this->dbh = new PDO($dsn, self::DB_USER, self::DB_PASS);
@@ -26,24 +31,4 @@ class ModelBase
 
     }
 
-    /**
-     * トランザクションを開始します。
-     */
-    public function begin() {
-        $this->dbh->beginTransaction();
-    }
-
-    /**
-     * トランザクションをコミットします。
-     */
-    public function commit() {
-        $this->dbh->commit();
-    }
-
-    /**
-     * トランザクションをロールバックします。
-     */
-    public function rollback() {
-        $this->dbh->rollback();
-    }
 }

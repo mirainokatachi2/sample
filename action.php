@@ -7,14 +7,14 @@ try {
     $db = new TodoItemsModel();
     
     foreach ($_POST['is_completed'] as $key => $value) {
-        $db->completeTodoItem($key,$value);
+        $db->completeTodoItem($key, $value);
     }
 
     foreach ($_POST['is_deleted'] as $key => $value) {
-        $db->deleteTodoItem($key,$value);
+        $db->deleteTodoItem($key, $value);
     }
 
-    $dbh=null;
+    $db = null;
     header("Location: index.php");
     
     }
